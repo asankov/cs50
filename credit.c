@@ -44,7 +44,7 @@ int main()
         {
             printf("MASTERCARD\n");
         }
-        else if (cc == 34 || cc = 37) 
+        else if (cc == 34 || cc == 37) 
         {
             printf("AMERICAN\n");
         } 
