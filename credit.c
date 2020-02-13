@@ -52,8 +52,9 @@ int main()
         else if (cc >= 40 && cc <= 49)
         {
             printf("VISA\n");
+        } else {
+            printf("INVALID\n");
         }
-        printf("INVALID\n");
     } 
     else 
     {
