@@ -7,6 +7,7 @@ int main()
     long cc = credit_card_number;
 
     int sum = 0;
+    int digits = 0;
     bool is_other_digit = false;
     while (credit_card_number != 0) 
     {
@@ -30,6 +31,7 @@ int main()
             sum += number;
         }
 
+        digits++;
         is_other_digit = !is_other_digit;
         credit_card_number = credit_card_number / 10;
     }
@@ -41,15 +43,15 @@ int main()
             cc = cc / 10;
         }
 
-        if (cc >= 51 && cc <= 55) 
+        if (cc >= 51 && cc <= 55 && digits == 16) 
         {
             printf("MASTERCARD\n");
         }
-        else if (cc == 34 || cc == 37) 
+        else if ((cc == 34 || cc == 37) && digits == 15) 
         {
             printf("AMEX\n");
         } 
-        else if (cc >= 40 && cc <= 49)
+        else if ((cc >= 40 && cc <= 49) && (digits == 13 || digits == 16))
         {
             printf("VISA\n");
         } else {
