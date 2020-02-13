@@ -4,9 +4,11 @@
 int main(void)
 {
     int number;
-    do {
+    do 
+    {
         number = get_int("Height: ");
-    } while (number < 1 || number > 8);
+    } 
+    while (number < 1 || number > 8);
 
     for (int i = 1; i <= number; i++) 
     {
