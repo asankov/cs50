@@ -54,7 +54,9 @@ int main()
         else if ((cc >= 40 && cc <= 49) && (digits == 13 || digits == 16))
         {
             printf("VISA\n");
-        } else {
+        } 
+        else 
+        {
             printf("INVALID\n");
         }
     } 
