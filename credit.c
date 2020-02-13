@@ -38,15 +38,16 @@ int main()
     {
         while (cc > 100)
         {
-            cc = cc % 10;
+            cc = cc / 10;
         }
+
         if (cc >= 51 && cc <= 55) 
         {
             printf("MASTERCARD\n");
         }
         else if (cc == 34 || cc == 37) 
         {
-            printf("AMERICAN\n");
+            printf("AMEX\n");
         } 
         else if (cc >= 40 && cc <= 49)
         {
