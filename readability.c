@@ -38,6 +38,6 @@ int main(void)
         printf("Below Grade 1\n");
     } else
     {
-        printf("Grade: %.0f\n", index);
+        printf("Grade %.0f\n", index);
     }
 }
