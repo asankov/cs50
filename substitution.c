@@ -3,30 +3,39 @@
 #include <ctype.h>
 #include <string.h>
 
+const int EXPECTED_SUM = 2847;
+
 int main(int argc, string argv[])
 {
     if (argc != 2)
     {
-        printf("Usage: ./substitution key");
+        printf("Usage: ./substitution key\n");
         return 1;
     }
     string key = argv[1];
     if (strlen(key) != 26)
     {
-        printf("Key must contain 26 characters.");
+        printf("Key must contain 26 characters.\n");
         return 1;
     }
-    
+
+    int sum = 0;
     // convert key to lower-case to ensure case-insentivity
     for (int i = 0, n = strlen(key); i < n; i++)
     {
-        char current = key[i];
-        if (!isalpha(current))
+        if (!isalpha(key[i]))
         {
+            printf("Key must contain only letters.\n");
             return 1;
         }
-        
+
         key[i] = tolower(key[i]);
+        sum += key[i];
+    }
+    if (sum != EXPECTED_SUM)
+    {
+        printf("Key must not contain repeative characters.\n");
+        return 1;
     }
 
     string text = get_string("plaintext: ");
@@ -56,7 +65,7 @@ int main(int argc, string argv[])
 
         printf("%c", ciphered);
     }
-    
+
     printf("\n");
     return 0;
 }
