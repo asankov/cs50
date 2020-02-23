@@ -29,13 +29,15 @@ int main(int argc, string argv[])
             printf("Key must contain only letters.\n");
             return 1;
         }
+
+
+        key[i] = tolower(key[i]);
+        
         if (key[i] == previous) 
         {
             printf("Key must not contain repeative characters.\n");
             return 1;
         }
-
-        key[i] = tolower(key[i]);
         previous = key[i];
         sum += key[i];
     }
