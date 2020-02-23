@@ -33,6 +33,7 @@ int main(int argc, string argv[])
         if (!isalpha(current))
         {
             printf("%c", current);
+            continue;
         }
 
         char ciphered;
