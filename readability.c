@@ -23,20 +23,20 @@ int main(void)
         }
     }
 
-    float coef = (100 / (float) words)
-    float l = coaf * letters;
-    float s = coaf * sentences;
+    float coef = 100 / (float) words;
+    float l = coef * letters;
+    float s = coef * sentences;
 
     float index = 0.0588 * l - 0.296 * s - 15.8;
 
 
     if (index > 16)
     {
-        printf("Grade 16+")
+        printf("Grade 16+");
     } else if (index < 1)
     {
-        printf("Below Grade 1")
-    } else 
+        printf("Below Grade 1");
+    } else
     {
         printf("Grade: %.0f\n", index);
     }
