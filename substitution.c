@@ -20,6 +20,12 @@ int main(int argc, string argv[])
     // convert key to lower-case to ensure case-insentivity
     for (int i = 0, n = strlen(key); i < n; i++)
     {
+        char current = key[i];
+        if (!isalpha(current))
+        {
+            return 1;
+        }
+        
         key[i] = tolower(key[i]);
     }
 
