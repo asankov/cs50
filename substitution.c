@@ -20,6 +20,7 @@ int main(int argc, string argv[])
     }
 
     int sum = 0;
+    char previous;
     // convert key to lower-case to ensure case-insentivity
     for (int i = 0, n = strlen(key); i < n; i++)
     {
@@ -28,8 +29,14 @@ int main(int argc, string argv[])
             printf("Key must contain only letters.\n");
             return 1;
         }
+        if (key[i] == previous) 
+        {
+            printf("Key must not contain repeative characters.\n");
+            return 1;
+        }
 
         key[i] = tolower(key[i]);
+        previous = key[i];
         sum += key[i];
     }
     if (sum != EXPECTED_SUM)
