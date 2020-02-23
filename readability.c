@@ -14,10 +14,12 @@ int main(void)
         if (isalpha(current))
         {
             letters++;
-        } else if (current == ' ')
+        } 
+        else if (current == ' ')
         {
             words++;
-        } else if (current == '.' || current == '!' || current == '?')
+        } 
+        else if (current == '.' || current == '!' || current == '?')
         {
             sentences++;
         }
@@ -33,10 +35,12 @@ int main(void)
     if (index > 16)
     {
         printf("Grade 16+\n");
-    } else if (index < 1)
+    } 
+    else if (index < 1)
     {
         printf("Before Grade 1\n");
-    } else
+    } 
+    else
     {
         printf("Grade %.0f\n", index);
     }
