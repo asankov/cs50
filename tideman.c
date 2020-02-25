@@ -214,6 +214,7 @@ void print_winner(void)
         if (is_winner(i))
         {
             printf("%s\n", candidates[i]);
+            return;
         }
     }
 }
