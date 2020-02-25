@@ -158,7 +158,7 @@ void sort_pairs(void)
     {
         for (int j = i; j < pair_count; j++)
         {
-            if (i == j) 
+            if (i == j)
             {
                 continue;
             }
@@ -194,11 +194,11 @@ bool are_looped(int start, int end)
     }
     for (int i = 0; i < candidate_count; i++)
     {
-        if (locked[end][i] && looped(start, i))
-            {
-                return true;
-            }
+        if (locked[end][i] && are_looped(start, i))
+        {
+            return true;
         }
+        
     }
     return false;
 }
