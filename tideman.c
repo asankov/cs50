@@ -207,7 +207,31 @@ bool are_looped(int start, int end)
 // Print the winner of the election
 void print_winner(void)
 {
-    // TODO
+    bool winners[candidate_count];
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            if (i == j)
+            {
+                continue;
+            }
+            if (locked[j][i])
+            {
+                winners[i] = false;
+                // TODO: short-circuit
+            }
+        }
+    }
+    
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (winners[i])
+        {
+            printf("%s\n", candidates[i]);
+            return;
+        }
+    }
     return;
 }
 
