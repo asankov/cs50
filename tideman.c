@@ -33,8 +33,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
-bool looped(int start, int end);
-bool loop_check(int start, int end);
+bool are_looped(int start, int end);
 
 int main(int argc, string argv[])
 {
@@ -179,7 +178,7 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        if (!looped(pairs[i].winner, pairs[i].loser))
+        if (!are_looped(pairs[i].winner, pairs[i].loser))
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
         }
@@ -187,7 +186,7 @@ void lock_pairs(void)
     return;
 }
 
-bool looped(int start, int end)
+bool are_looped(int start, int end)
 {
     if (start == end)
     {
@@ -195,9 +194,7 @@ bool looped(int start, int end)
     }
     for (int i = 0; i < candidate_count; i++)
     {
-        if (locked[end][i])
-        {
-            if (looped(start, i))
+        if (locked[end][i] && looped(start, i))
             {
                 return true;
             }
@@ -206,24 +203,6 @@ bool looped(int start, int end)
     return false;
 }
 
-bool loop_check(int start, int end)
-{
-    if (end == start)
-    {
-        return true;
-    }
-    for (int i = 0; i < candidate_count; i++)
-    {
-        if ((preferences[end][i] > preferences[i][end]) && (locked[end][i]))
-        {
-            if (loop_check(start, i))
-            {
-                return true;
-            }
-        }
-    }
-    return false;
-}
 
 // Print the winner of the election
 void print_winner(void)
