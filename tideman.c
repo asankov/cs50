@@ -143,18 +143,32 @@ void add_pairs(void)
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
                 pair_count++;
-                // add pair - {winner: i, loser: j}
             }
+            // if the pairs are not equals, we will get into the if when i -> j
         }
     }
-    // TODO
     return;
 }
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+        for (int j = i; j < pair_count; j++)
+        {
+            if (i == j) 
+            {
+                continue;
+            }
+            if (preferences[pairs[i].winner][pairs[i].loser] > preferences[pairs[j].winner][pairs[j].loser])
+            {
+                pair temp = pairs[j];
+                pairs[j] = pairs[i];
+                pairs[i] = temp;
+            }
+        }
+    }
     return;
 }
 
