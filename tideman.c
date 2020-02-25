@@ -34,6 +34,7 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 bool looped(int start, int end);
+bool loop_check(int start, int end);
 
 int main(int argc, string argv[])
 {
@@ -188,11 +189,34 @@ void lock_pairs(void)
 
 bool looped(int start, int end)
 {
+    if (start == end)
+    {
+        return true;
+    }
     for (int i = 0; i < candidate_count; i++)
     {
         if (locked[end][i])
         {
             if (looped(start, i))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool loop_check(int start, int end)
+{
+    if (end == start)
+    {
+        return true;
+    }
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if ((preferences[end][i] > preferences[i][end]) && (locked[end][i]))
+        {
+            if (loop_check(start, i))
             {
                 return true;
             }
