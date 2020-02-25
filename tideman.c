@@ -177,16 +177,27 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        for (int j = 0; j < candidate_count; j++)
+        if (!looped(pairs[i].winner, pairs[i].loser))
         {
-            if (locked[pairs[i].loser][j] && locked[j][pairs[i].winner])
-            {
-                continue;
-            }
+            locked[pairs[i].winner][pairs[i].loser] = true;
         }
-        locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
+}
+
+bool looped(int start, int end)
+{
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (locked[end][i])
+        {
+            if (looped(start, i))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 // Print the winner of the election
