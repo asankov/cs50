@@ -145,13 +145,6 @@ void add_pairs(void)
                 pair_count++;
                 // add pair - {winner: i, loser: j}
             }
-            else if (j_over_i > i_over_j)
-            {
-                pairs[pair_count].winner = j;
-                pairs[pair_count].loser = i;
-                pair_count++;
-                // add pair - {winner: j, loser: i}
-            }
         }
     }
     // TODO
