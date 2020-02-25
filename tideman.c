@@ -198,40 +198,39 @@ bool are_looped(int start, int end)
         {
             return true;
         }
-        
+
     }
     return false;
 }
 
 
+bool is_winner(int candidate);
+
 // Print the winner of the election
 void print_winner(void)
 {
-    bool winners[candidate_count];
     for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            if (i == j)
-            {
-                continue;
-            }
-            if (locked[j][i])
-            {
-                winners[i] = false;
-                // TODO: short-circuit
-            }
-        }
-    }
-    
-    for (int i = 0; i < candidate_count; i++)
-    {
-        if (winners[i])
+        if (is_winner(i))
         {
             printf("%s\n", candidates[i]);
-            return;
         }
     }
-    return;
 }
 
+bool is_winner(int candidate)
+{
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (i == candidate)
+        {
+            continue;
+        }
+        if (locked[i][candidate])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
