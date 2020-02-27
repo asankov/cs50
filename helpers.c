@@ -86,5 +86,88 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    return;
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width / 2; j++)
+        {
+            int aBlue = 0;
+            int aRed = 0;
+            int aGreen = 0;
+
+            // itself
+            aBlue += image[i][j].rgbtBlue;
+            aRed += image[i][j].rgbtRed;
+            aGreen += image[i][j].rgbtGreen;
+
+            if (i != 0)
+            {
+                // top
+                aBlue += image[i-1][j].rgbtBlue;
+                aRed += image[i-1][j].rgbtRed;
+                aGreen += image[i-1][j].rgbtGreen;
+
+
+                // top-right
+                if (j != width-1)
+                {
+                    aBlue += image[i-1][j+1].rgbtBlue;
+                    aRed += image[i-1][j+1].rgbtRed;
+                    aGreen += image[i-1][j+1].rgbtGreen;
+                }
+
+                // top-left
+                if (j != 0)
+                {
+                    aBlue += image[i-1][j-1].rgbtBlue;
+                    aRed += image[i-1][j-1].rgbtRed;
+                    aGreen += image[i-1][j-1].rgbtGreen;
+                }
+            }
+
+            // right
+            if (j != width-1)
+            {
+                aBlue += image[i][j+1].rgbtBlue;
+                aRed += image[i][j+1].rgbtRed;
+                aGreen += image[i][j+1].rgbtGreen;
+            }
+
+            // left
+            if (j != 0)
+            {
+                aBlue += image[i][j-1].rgbtBlue;
+                aRed += image[i][j-1].rgbtRed;
+                aGreen += image[i][j-1].rgbtGreen;
+            }
+
+            if (i != height-1)
+            {
+                // bottom
+                aBlue += image[i+1][j].rgbtBlue;
+                aRed += image[i+1][j].rgbtRed;
+                aGreen += image[i+1][j].rgbtGreen;
+
+                // bottom-right
+                if (j != width-1)
+                {
+                    aBlue += image[i+1][j+1].rgbtBlue;
+                    aRed += image[i+1][j+1].rgbtRed;
+                    aGreen += image[i+1][j+1].rgbtGreen;
+                }
+                // botoom-left
+                if (j != 0)
+                {
+                    aBlue += image[i+1][j-1].rgbtBlue;
+                    aRed += image[i+1][j-1].rgbtRed;
+                    aGreen += image[i+1][j-1].rgbtGreen;
+                }
+            }
+
+            RGBTRIPLE *img = &image[i][j];
+
+            img->rgbtBlue = aBlue;
+            img->rgbtRed = aRed;
+            img->rgbtGreen = aGreen;
+        }
+    }
 }
