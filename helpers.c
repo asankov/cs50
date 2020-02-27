@@ -165,9 +165,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             RGBTRIPLE *img = &image[i][j];
 
-            img->rgbtBlue = aBlue;
-            img->rgbtRed = aRed;
-            img->rgbtGreen = aGreen;
+            img->rgbtBlue = (int) roundf(aBlue);
+            img->rgbtRed = (int) roundf(aRed);
+            img->rgbtGreen = (int) roundf(aGreen);
         }
     }
 }
