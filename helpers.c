@@ -251,7 +251,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     gyRed += img.rgbtRed;
                     gxGreen -= img.rgbtGreen;
                     gyGreen += img.rgbtGreen;
-                                    printf("9) %i\n", gxBlue);
+                                    printf("9) %i %i\n", gxBlue, gyBlue);
 
                 }
             }
