@@ -66,8 +66,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width / 2; j++)
         {
             RGBTRIPLE temp = image[i][j];
-            image[i][j] = image[i][width - (j+1)];
-            image[i][width - (j+1)] = temp;
+            image[i][j] = image[i][width - (j + 1)];
+            image[i][width - (j + 1)] = temp;
         }
     }
 }
@@ -91,71 +91,71 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             if (i != 0)
             {
                 // top
-                aBlue += image[i-1][j].rgbtBlue;
-                aRed += image[i-1][j].rgbtRed;
-                aGreen += image[i-1][j].rgbtGreen;
+                aBlue += image[i - 1][j].rgbtBlue;
+                aRed += image[i - 1][j].rgbtRed;
+                aGreen += image[i - 1][j].rgbtGreen;
                 c++;
 
 
                 // top-right
-                if (j != width-1)
+                if (j != width - 1)
                 {
-                    aBlue += image[i-1][j+1].rgbtBlue;
-                    aRed += image[i-1][j+1].rgbtRed;
-                    aGreen += image[i-1][j+1].rgbtGreen;
+                    aBlue += image[i - 1][j + 1].rgbtBlue;
+                    aRed += image[i - 1][j + 1].rgbtRed;
+                    aGreen += image[i - 1][j + 1].rgbtGreen;
                     c++;
                 }
 
                 // top-left
                 if (j != 0)
                 {
-                    aBlue += image[i-1][j-1].rgbtBlue;
-                    aRed += image[i-1][j-1].rgbtRed;
-                    aGreen += image[i-1][j-1].rgbtGreen;
+                    aBlue += image[i - 1][j - 1].rgbtBlue;
+                    aRed += image[i - 1][j - 1].rgbtRed;
+                    aGreen += image[i - 1][j - 1].rgbtGreen;
                     c++;
                 }
             }
 
             // right
-            if (j != width-1)
+            if (j != width - 1)
             {
-                aBlue += image[i][j+1].rgbtBlue;
-                aRed += image[i][j+1].rgbtRed;
-                aGreen += image[i][j+1].rgbtGreen;
+                aBlue += image[i][j + 1].rgbtBlue;
+                aRed += image[i][j + 1].rgbtRed;
+                aGreen += image[i][j + 1].rgbtGreen;
                 c++;
             }
 
             // left
             if (j != 0)
             {
-                aBlue += image[i][j-1].rgbtBlue;
-                aRed += image[i][j-1].rgbtRed;
-                aGreen += image[i][j-1].rgbtGreen;
+                aBlue += image[i][j - 1].rgbtBlue;
+                aRed += image[i][j - 1].rgbtRed;
+                aGreen += image[i][j - 1].rgbtGreen;
                 c++;
             }
 
-            if (i != height-1)
+            if (i != height - 1)
             {
                 // bottom
-                aBlue += image[i+1][j].rgbtBlue;
-                aRed += image[i+1][j].rgbtRed;
-                aGreen += image[i+1][j].rgbtGreen;
+                aBlue += image[i + 1][j].rgbtBlue;
+                aRed += image[i + 1][j].rgbtRed;
+                aGreen += image[i + 1][j].rgbtGreen;
                 c++;
 
                 // bottom-right
-                if (j != width-1)
+                if (j != width - 1)
                 {
-                    aBlue += image[i+1][j+1].rgbtBlue;
-                    aRed += image[i+1][j+1].rgbtRed;
-                    aGreen += image[i+1][j+1].rgbtGreen;
+                    aBlue += image[i + 1][j + 1].rgbtBlue;
+                    aRed += image[i + 1][j + 1].rgbtRed;
+                    aGreen += image[i + 1][j + 1].rgbtGreen;
                     c++;
                 }
                 // botoom-left
                 if (j != 0)
                 {
-                    aBlue += image[i+1][j-1].rgbtBlue;
-                    aRed += image[i+1][j-1].rgbtRed;
-                    aGreen += image[i+1][j-1].rgbtGreen;
+                    aBlue += image[i + 1][j - 1].rgbtBlue;
+                    aRed += image[i + 1][j - 1].rgbtRed;
+                    aGreen += image[i + 1][j - 1].rgbtGreen;
                     c++;
                 }
             }
@@ -168,7 +168,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    for(int i = 0; i < height; ++i)
+    for (int i = 0; i < height; ++i)
     {
         for (int j = 0; j < width; ++j)
         {
