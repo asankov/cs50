@@ -38,9 +38,24 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             float oBlue = (float) img->rgbtBlue;
             float oGreen = (float) img->rgbtGreen;
             float oRed = (float) img->rgbtRed;
-            img->rgbtBlue = (int) roundf(0.272 * oRed + 0.534 * oGreen + 0.131 * oBlue);
-            img->rgbtGreen = (int) roundf(0.349 * oRed + 0.686 * oGreen + 0.168 * oBlue);
-            img->rgbtRed = (int) roundf(0.393 * oRed + .769 * oGreen + 0.189 * oBlue);
+            int nBlue = (int) roundf(0.272 * oRed + 0.534 * oGreen + 0.131 * oBlue);
+            if (nBlue > 255)
+            {
+                nBlue = 255;
+            }
+            img->rgbtBlue = nBlue;
+            int nGreen = (int) roundf(0.349 * oRed + 0.686 * oGreen + 0.168 * oBlue);
+            if (nGreen > 255)
+            {
+                nGreen = 255;
+            }
+            img->rgbtGreen = nGreen;
+            int nRed = (int) roundf(0.393 * oRed + .769 * oGreen + 0.189 * oBlue);
+            if (nRed > 255)
+            {
+                nRed = 255;
+            }
+            img->rgbtRed = nRed;
         }
     }
 }
