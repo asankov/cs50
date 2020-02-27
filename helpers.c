@@ -240,12 +240,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 newRed = 255;
             }
-            int newBlue = (gxBlue*gxBlue) + (gyBlue*gyBlue);
+            int newBlue = (int) roundf((gxBlue*gxBlue) + (gyBlue*gyBlue));
             if (newBlue > 255)
             {
                 newBlue = 255;
             }
-            int newGreen = (gxGreen*gxGreen) + (gyGreen*gyGreen);
+            int newGreen = (int) roundf((gxGreen*gxGreen) + (gyGreen*gyGreen));
             if (newGreen > 255)
             {
                 newGreen = 255;
