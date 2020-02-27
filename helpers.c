@@ -31,13 +31,11 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-//               sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue
-//   sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue
-//   sepiaBlue = .272 * originalRed + .534 * originalGreen + .131 * originalBlue
             RGBTRIPLE *img = &image[i][j];
             float oBlue = (float) img->rgbtBlue;
             float oGreen = (float) img->rgbtGreen;
             float oRed = (float) img->rgbtRed;
+
             int nBlue = (int) roundf(0.272 * oRed + 0.534 * oGreen + 0.131 * oBlue);
             if (nBlue > 255)
             {
@@ -63,7 +61,26 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-    return;
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width / 2; j++)
+        {
+            RGBTRIPLE *left = &image[i][j];
+            RGBTRIPLE *right = &image[i][width - j];
+
+            int tmpBlue = left->rgbtBlue;
+            int tmpGreen = left->rgbtGreen;
+            int tmpRed = left->rgbtRed;
+
+            left->rgbtBlue = right->rgbtBlue;
+            left->rgbtGreen = right->rgbtGreen;
+            left->rgbtRed = right->rgbtRed;
+
+            right->rgbtBlue = tmpBlue;
+            right->rgbtGreen = tmpGreen;
+            right->rgbtRed = tmpRed;
+        }
+    }
 }
 
 // Blur image
