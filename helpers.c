@@ -193,9 +193,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             // right - Gx=2, Gy=0
             if (j != width - 1)
             {
-                gxBlue += 2 * img.rgbtBlue;
-                gxRed += 2 * img.rgbtRed;
-                gxGreen += 2 * img.rgbtGreen;
+                gxBlue += (2 * img.rgbtBlue);
+                gxRed += (2 * img.rgbtRed);
+                gxGreen += (2 * img.rgbtGreen);
             }
 
             // left - Gx=-2, Gy=0
