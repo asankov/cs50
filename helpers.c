@@ -163,30 +163,30 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             if (i != 0)
             {
                 // top - Gx=0, Gy=-2
-                gyBlue += img.rgbtBlue * -2;
-                gyRed += img.rgbtRed * -2;
-                gyGreen += img.rgbtGreen * -2;
+                gyBlue -= img.rgbtBlue * 2;
+                gyRed -= img.rgbtRed * 2;
+                gyGreen -= img.rgbtGreen * 2;
 
                 // top-right - Gx=1, Gy=-1
                 if (j != width - 1)
                 {
                     gxBlue += img.rgbtBlue;
-                    gyBlue += -img.rgbtBlue;
+                    gyBlue -= img.rgbtBlue;
                     gxRed += img.rgbtRed;
-                    gyRed += -img.rgbtRed;
+                    gyRed -= img.rgbtRed;
                     gxGreen += img.rgbtGreen;
-                    gyGreen += -img.rgbtGreen;
+                    gyGreen -= img.rgbtGreen;
                 }
 
                 // top-left - Gx=-1, Gy=-1
                 if (j != 0)
                 {
-                    gxBlue += -img.rgbtBlue;
-                    gyBlue += -img.rgbtBlue;
-                    gxRed += -img.rgbtRed;
-                    gyRed += -img.rgbtRed;
-                    gxGreen += -img.rgbtGreen;
-                    gyGreen += -img.rgbtGreen;
+                    gxBlue -= img.rgbtBlue;
+                    gyBlue -= img.rgbtBlue;
+                    gxRed -= img.rgbtRed;
+                    gyRed -= img.rgbtRed;
+                    gxGreen -= img.rgbtGreen;
+                    gyGreen -= img.rgbtGreen;
                 }
             }
 
@@ -201,9 +201,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             // left - Gx=-2, Gy=0
             if (j != 0)
             {
-                gxBlue += -2 * img.rgbtBlue;
-                gxRed += -2 * img.rgbtRed;
-                gxGreen += -2 * img.rgbtGreen;
+                gxBlue -= 2 * img.rgbtBlue;
+                gxRed -= 2 * img.rgbtRed;
+                gxGreen -= 2 * img.rgbtGreen;
             }
 
             if (i != height - 1)
@@ -226,11 +226,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 // bottom-left - Gx=-1, Gy=1
                 if (j != 0)
                 {
-                    gxBlue += -img.rgbtBlue;
+                    gxBlue -= img.rgbtBlue;
                     gyBlue += img.rgbtBlue;
-                    gxRed += -img.rgbtRed;
+                    gxRed -= img.rgbtRed;
                     gyRed += img.rgbtRed;
-                    gxGreen += -img.rgbtGreen;
+                    gxGreen -= img.rgbtGreen;
                     gyGreen += img.rgbtGreen;
                 }
             }
