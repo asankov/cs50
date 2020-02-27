@@ -68,9 +68,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             RGBTRIPLE left = image[i][j];
             RGBTRIPLE right = image[i][width - (j+1)];
             
-            RGBTRIPLE temp = left;
-            image[i][j] = right;
-            right = temp;
+            RGBTRIPLE temp = image[i][j];
+            image[i][j] = image[i][width - (j+1)];
+            image[i][width - (j+1)] = temp;
 
             // int tmpBlue = left->rgbtBlue;
             // int tmpGreen = left->rgbtGreen;
