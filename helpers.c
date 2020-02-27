@@ -93,6 +93,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int aBlue = 0;
             int aRed = 0;
             int aGreen = 0;
+            int c = 1;
 
             // itself
             aBlue += image[i][j].rgbtBlue;
@@ -105,6 +106,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 aBlue += image[i-1][j].rgbtBlue;
                 aRed += image[i-1][j].rgbtRed;
                 aGreen += image[i-1][j].rgbtGreen;
+                c++;
 
 
                 // top-right
@@ -113,6 +115,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     aBlue += image[i-1][j+1].rgbtBlue;
                     aRed += image[i-1][j+1].rgbtRed;
                     aGreen += image[i-1][j+1].rgbtGreen;
+                    c++;
                 }
 
                 // top-left
@@ -121,6 +124,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     aBlue += image[i-1][j-1].rgbtBlue;
                     aRed += image[i-1][j-1].rgbtRed;
                     aGreen += image[i-1][j-1].rgbtGreen;
+                    c++;
                 }
             }
 
@@ -130,6 +134,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 aBlue += image[i][j+1].rgbtBlue;
                 aRed += image[i][j+1].rgbtRed;
                 aGreen += image[i][j+1].rgbtGreen;
+                c++;
             }
 
             // left
@@ -138,6 +143,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 aBlue += image[i][j-1].rgbtBlue;
                 aRed += image[i][j-1].rgbtRed;
                 aGreen += image[i][j-1].rgbtGreen;
+                c++;
             }
 
             if (i != height-1)
@@ -146,6 +152,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 aBlue += image[i+1][j].rgbtBlue;
                 aRed += image[i+1][j].rgbtRed;
                 aGreen += image[i+1][j].rgbtGreen;
+                c++;
 
                 // bottom-right
                 if (j != width-1)
@@ -153,6 +160,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     aBlue += image[i+1][j+1].rgbtBlue;
                     aRed += image[i+1][j+1].rgbtRed;
                     aGreen += image[i+1][j+1].rgbtGreen;
+                    c++;
                 }
                 // botoom-left
                 if (j != 0)
@@ -160,14 +168,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     aBlue += image[i+1][j-1].rgbtBlue;
                     aRed += image[i+1][j-1].rgbtRed;
                     aGreen += image[i+1][j-1].rgbtGreen;
+                    c++;
                 }
             }
 
             RGBTRIPLE *img = &image[i][j];
 
-            img->rgbtBlue = (int) roundf(aBlue);
-            img->rgbtRed = (int) roundf(aRed);
-            img->rgbtGreen = (int) roundf(aGreen);
+            img->rgbtBlue = (int) roundf((float) aBlue / (float) c);
+            img->rgbtRed = (int) roundf((float)aRed / (float) c);
+            img->rgbtGreen = (int) roundf((float) aGreen / (float) c);
         }
     }
 }
