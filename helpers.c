@@ -181,5 +181,5 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             newImage[i][j].rgbtGreen = (int) roundf((float) aGreen / (float) c);
         }
     }
-    image = newImage;
+    // image = newImage;
 }
