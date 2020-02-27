@@ -147,5 +147,120 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-    return;
+    RGBTRIPLE newImage[height][width];
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            RGBTRIPLE img = image[i][j];
+
+            // itself
+            int gxBlue = 0, gyBlue = 0;
+            int gxRed = 0, gyRed = 0;
+            int gxGreen = 0, gyGreen = 0;
+
+            if (i != 0)
+            {
+                // top - Gx=0, Gy=-2
+                gyBlue += img.rgbtBlue * -2;
+                gyRed += img.rgbtRed * -2;
+                gyGreen += img.rgbtGreen * -2;
+
+                // top-right - Gx=1, Gy=-1
+                if (j != width - 1)
+                {
+                    gxBlue += img.rgbtBlue;
+                    gyBlue += -img.rgbtBlue;
+                    gxRed += img.rgbtRed;
+                    gyRed += -img.rgbtRed;
+                    gxGreen += img.rgbtGreen;
+                    gyGreen += -img.rgbtGreen;
+                }
+
+                // top-left - Gx=-1, Gy=-1
+                if (j != 0)
+                {
+                    gxBlue += -img.rgbtBlue;
+                    gyBlue += -img.rgbtBlue;
+                    gxRed += -img.rgbtRed;
+                    gyRed += -img.rgbtRed;
+                    gxGreen += -img.rgbtGreen;
+                    gyGreen += -img.rgbtGreen;
+                }
+            }
+
+            // right - Gx=2, Gy=0
+            if (j != width - 1)
+            {
+                gxBlue += 2 * img.rgbtBlue;
+                gxRed += 2 * img.rgbtRed;
+                gxGreen += 2 * img.rgbtGreen;
+            }
+
+            // left - Gx=-2, Gy=0
+            if (j != 0)
+            {
+                gxBlue += -2 * img.rgbtBlue;
+                gxRed += -2 * img.rgbtRed;
+                gxGreen += -2 * img.rgbtGreen;
+            }
+
+            if (i != height - 1)
+            {
+                // bottom - Gx=0, Gy=2
+                gyBlue += img.rgbtBlue * 2;
+                gyRed += img.rgbtRed * 2;
+                gyGreen += img.rgbtGreen * 2;
+
+                // bottom-right - Gx=1, Gy=1
+                if (j != width - 1)
+                {
+                    gxBlue += img.rgbtBlue;
+                    gyBlue += img.rgbtBlue;
+                    gxRed += img.rgbtRed;
+                    gyRed += img.rgbtRed;
+                    gxGreen += img.rgbtGreen;
+                    gyGreen += img.rgbtGreen;
+                }
+                // bottom-left - Gx=-1, Gy=1
+                if (j != 0)
+                {
+                    gxBlue += -img.rgbtBlue;
+                    gyBlue += img.rgbtBlue;
+                    gxRed += -img.rgbtRed;
+                    gyRed += img.rgbtRed;
+                    gxGreen += -img.rgbtGreen;
+                    gyGreen += img.rgbtGreen;
+                }
+            }
+
+            int newRed = (gxRed*gxRed) + (gyRed*gyRed);
+            if (newRed > 255)
+            {
+                newRed = 255;
+            }
+            int newBlue = (gxBlue*gxBlue) + (gyBlue*gyBlue);
+            if (newBlue > 255)
+            {
+                newBlue = 255;
+            }
+            int newGreen = (gxGreen*gxGreen) + (gyGreen*gyGreen);
+            if (newGreen > 255)
+            {
+                newGreen = 255;
+            }
+            newImage[i][j].rgbtBlue = newBlue;
+            newImage[i][j].rgbtRed = newRed;
+            newImage[i][j].rgbtGreen = newGreen;
+        }
+    }
+
+    for (int i = 0; i < height; ++i)
+    {
+        for (int j = 0; j < width; ++j)
+        {
+            image[i][j] = newImage[i][j];
+        }
+    }
 }
