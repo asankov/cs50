@@ -10,8 +10,8 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             RGBTRIPLE img = image[i][j];
-            float sum = img.rgbtBlue + img.rgbtGreen + img.rgbtRed;
-            float res = sum / 3;
+            int sum = img.rgbtBlue + img.rgbtGreen + img.rgbtRed;
+            float res = (float) sum / 3.0;
             img.rgbtBlue = roundf(res);
             img.rgbtGreen = roundf(res);
             img.rgbtRed = roundf(res);
