@@ -153,15 +153,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         {
             RGBTRIPLE img = image[i][j];
 
-            printf("original %i\n", img.rgbtBlue);
-
             // itself
             int gxBlue = 0, gyBlue = 0;
             int gxRed = 0, gyRed = 0;
             int gxGreen = 0, gyGreen = 0;
-
-            printf("1) %i\n", gxBlue);
-
 
             if (i != 0)
             {
@@ -169,8 +164,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 gyBlue -= img.rgbtBlue * 2;
                 gyRed -= img.rgbtRed * 2;
                 gyGreen -= img.rgbtGreen * 2;
-                printf("2) %i\n", gxBlue);
-
 
                 // top-right - Gx=1, Gy=-1
                 if (j != width - 1)
@@ -181,8 +174,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     gyRed -= img.rgbtRed;
                     gxGreen += img.rgbtGreen;
                     gyGreen -= img.rgbtGreen;
-                                    printf("3) %i\n", gxBlue);
-
                 }
 
                 // top-left - Gx=-1, Gy=-1
@@ -194,8 +185,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     gyRed -= img.rgbtRed;
                     gxGreen -= img.rgbtGreen;
                     gyGreen -= img.rgbtGreen;
-                                    printf("4) %i\n", gxBlue);
-
                 }
             }
 
@@ -209,14 +198,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
             }
 
-            // left - Gx=-2, Gy=0
             if (j != 0)
             {
                 gxBlue -= 2 * img.rgbtBlue;
                 gxRed -= 2 * img.rgbtRed;
                 gxGreen -= 2 * img.rgbtGreen;
-                                printf("6) %i\n", gxBlue);
-
             }
 
             if (i != height - 1)
@@ -237,8 +223,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     gyRed += img.rgbtRed;
                     gxGreen += img.rgbtGreen;
                     gyGreen += img.rgbtGreen;
-                                    printf("8) %i\n", gxBlue);
-
                 }
                 // bottom-left - Gx=-1, Gy=1
                 if (j != 0)
@@ -249,29 +233,25 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     gyRed += img.rgbtRed;
                     gxGreen -= img.rgbtGreen;
                     gyGreen += img.rgbtGreen;
-                                    printf("9) %i %i\n", gxBlue, gyBlue);
-
                 }
             }
 
-            int newRed = (int) roundf((float)((gxRed*gxRed) + (gyRed*gyRed)));
+            int newRed = (int) roundf(sqrt((gxRed*gxRed) + (gyRed*gyRed)));
             if (newRed > 255)
             {
                 newRed = 255;
             }
-            int newBlue = (int) roundf((gxBlue*gxBlue) + (gyBlue*gyBlue));
+            int newBlue = (int) roundf(sqrt((gxBlue*gxBlue) + (gyBlue*gyBlue)));
             if (newBlue > 255)
             {
                 newBlue = 255;
             }
-                        printf("new blue calc: %i\n", newBlue);
 
-            int newGreen = (int) roundf((gxGreen*gxGreen) + (gyGreen*gyGreen));
+            int newGreen = (int) roundf(sqrt((gxGreen*gxGreen) + (gyGreen*gyGreen)));
             if (newGreen > 255)
             {
                 newGreen = 255;
             }
-            printf("new blue %i\n", newBlue);
 
             newImage[i][j].rgbtBlue = newBlue;
             newImage[i][j].rgbtRed = newRed;
