@@ -196,6 +196,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 gxGreen += (2 * img.rgbtGreen);
             }
 
+            // left - Gx=-2, Gy=0
             if (j != 0)
             {
                 gxBlue -= 2 * img.rgbtBlue;
@@ -206,9 +207,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             if (i != height - 1)
             {
                 // bottom - Gx=0, Gy=2
-                gyBlue += img.rgbtBlue * 2;
-                gyRed += img.rgbtRed * 2;
-                gyGreen += img.rgbtGreen * 2;
+                gyBlue += (img.rgbtBlue * 2);
+                gyRed += (img.rgbtRed * 2);
+                gyGreen += (img.rgbtGreen * 2);
 
                 // bottom-right - Gx=1, Gy=1
                 if (j != width - 1)
@@ -232,7 +233,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-            int newRed = (int) roundf(sqrt((gxRed*gxRed) + (gyRed*gyRed)));
+            gxRedSqr = (gxRed*gxRed);
+            gyRedSqr = (gyRed*gyRed);
+            int newRed = (int) roundf(sqrt(gxRedSqr + gyRedSqr));
             if (newRed > 255)
             {
                 newRed = 255;
@@ -255,9 +258,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    for (int i = 0; i < height; ++i)
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; ++j)
+        for (int j = 0; j < width; j++)
         {
             image[i][j] = newImage[i][j];
         }
