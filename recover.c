@@ -25,9 +25,9 @@ int main(int argc, char *argv[])
     FILE *image = NULL;
     while(1)
     {
-        BYTE *image = malloc(BLOCK_SIZE);
-        int retrieved = fread(image, sizeof(BYTE), BLOCK_SIZE, file);
-        if (retrieved != BLOCK_SIZE)
+        BYTE *retrieved = malloc(BLOCK_SIZE);
+        int read = fread(retrieved, sizeof(BYTE), BLOCK_SIZE, file);
+        if (read != BLOCK_SIZE)
         {
             printf("Read error.\n");
             return 1;
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
                 fclose(image);
             }
 
-            char *filename;
+            char *filename = NULL;
             sprintf(filename, "%3d", ++c);
             image = fopen(filename, "w");
             if (image == NULL)
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
                 return 1;
             }
 
-            fprintf(image, retrieved);
+            fprintf(image,"%s", retrieved);
 
             printf("Image %i found.\n", ++c);
         } 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
         {
             if (image != NULL)
             {
-                fprintf(image, retrieved);
+                fprintf(image, "%s", retrieved);
             }
         }
     }
