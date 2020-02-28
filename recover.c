@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
         {
             if (image != NULL)
             {
-                fprintf(image, "%s", retrieved);
+                fwrite(retrieved, sizeof(BYTE), read, image);
             }
         }
         free(retrieved);
