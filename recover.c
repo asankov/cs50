@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
                 printf("Error\n");
                 return 1;
             }
-            sprintf(filename, "%3d.jpg", ++c);
+            sprintf(filename, "%3d.jpg", c++);
             image = fopen(filename, "w");
             if (image == NULL)
             {
@@ -60,8 +60,6 @@ int main(int argc, char *argv[])
             free(filename);
 
             fprintf(image,"%s", retrieved);
-
-            printf("Image %i found.\n", ++c);
         }
         else
         {
