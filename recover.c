@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
                 printf("Error\n");
                 return 1;
             }
-            sprintf(filename, "%3d.jpg", c++);
+            sprintf(filename, "%03d.jpg", c++);
             image = fopen(filename, "w");
             if (image == NULL)
             {
