@@ -161,75 +161,75 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             if (i != 0)
             {
                 // top - Gx=0, Gy=-2
-                gyBlue -= img.rgbtBlue * 2;
-                gyRed -= img.rgbtRed * 2;
-                gyGreen -= img.rgbtGreen * 2;
+                gyBlue -= image[i-1][j].rgbtBlue * 2;
+                gyRed -= image[i-1][j].rgbtRed * 2;
+                gyGreen -= image[i-1][j].rgbtGreen * 2;
 
                 // top-right - Gx=1, Gy=-1
                 if (j != width - 1)
                 {
-                    gxBlue += img.rgbtBlue;
-                    gyBlue -= img.rgbtBlue;
-                    gxRed += img.rgbtRed;
-                    gyRed -= img.rgbtRed;
-                    gxGreen += img.rgbtGreen;
-                    gyGreen -= img.rgbtGreen;
+                    gxBlue += image[i-1][j+1].rgbtBlue;
+                    gyBlue -= image[i-1][j+1].rgbtBlue;
+                    gxRed += image[i-1][j+1].rgbtRed;
+                    gyRed -= image[i-1][j+1].rgbtRed;
+                    gxGreen += image[i-1][j+1].rgbtGreen;
+                    gyGreen -= image[i-1][j+1].rgbtGreen;
                 }
 
                 // top-left - Gx=-1, Gy=-1
                 if (j != 0)
                 {
-                    gxBlue -= img.rgbtBlue;
-                    gyBlue -= img.rgbtBlue;
-                    gxRed -= img.rgbtRed;
-                    gyRed -= img.rgbtRed;
-                    gxGreen -= img.rgbtGreen;
-                    gyGreen -= img.rgbtGreen;
+                    gxBlue -= image[i-1][j-1].rgbtBlue;
+                    gyBlue -= image[i-1][j-1].rgbtBlue;
+                    gxRed -= image[i-1][j-1].rgbtRed;
+                    gyRed -= image[i-1][j-1].rgbtRed;
+                    gxGreen -= image[i-1][j-1].rgbtGreen;
+                    gyGreen -= image[i-1][j-1].rgbtGreen;
                 }
             }
 
             // right - Gx=2, Gy=0
             if (j != width - 1)
             {
-                gxBlue += (2 * img.rgbtBlue);
-                gxRed += (2 * img.rgbtRed);
-                gxGreen += (2 * img.rgbtGreen);
+                gxBlue += (2 * image[i][j+1].rgbtBlue);
+                gxRed += (2 * image[i][j+1].rgbtRed);
+                gxGreen += (2 * image[i][j+1].rgbtGreen);
             }
 
             // left - Gx=-2, Gy=0
             if (j != 0)
             {
-                gxBlue -= 2 * img.rgbtBlue;
-                gxRed -= 2 * img.rgbtRed;
-                gxGreen -= 2 * img.rgbtGreen;
+                gxBlue -= 2 * image[i][j-1].rgbtBlue;
+                gxRed -= 2 * image[i][j-1].rgbtRed;
+                gxGreen -= 2 * image[i][j-1].rgbtGreen;
             }
 
             if (i != height - 1)
             {
                 // bottom - Gx=0, Gy=2
-                gyBlue += (img.rgbtBlue * 2);
-                gyRed += (img.rgbtRed * 2);
-                gyGreen += (img.rgbtGreen * 2);
+                gyBlue += (image[i+1][j].rgbtBlue * 2);
+                gyRed += (image[i+1][j].rgbtRed * 2);
+                gyGreen += (image[i+1][j].rgbtGreen * 2);
 
                 // bottom-right - Gx=1, Gy=1
                 if (j != width - 1)
                 {
-                    gxBlue += img.rgbtBlue;
-                    gyBlue += img.rgbtBlue;
-                    gxRed += img.rgbtRed;
-                    gyRed += img.rgbtRed;
-                    gxGreen += img.rgbtGreen;
-                    gyGreen += img.rgbtGreen;
+                    gxBlue += image[i+1][j+1].rgbtBlue;
+                    gyBlue += image[i+1][j+1].rgbtBlue;
+                    gxRed += image[i+1][j+1].rgbtRed;
+                    gyRed += image[i+1][j+1].rgbtRed;
+                    gxGreen += image[i+1][j+1].rgbtGreen;
+                    gyGreen += image[i+1][j+1].rgbtGreen;
                 }
                 // bottom-left - Gx=-1, Gy=1
                 if (j != 0)
                 {
-                    gxBlue -= img.rgbtBlue;
-                    gyBlue += img.rgbtBlue;
-                    gxRed -= img.rgbtRed;
-                    gyRed += img.rgbtRed;
-                    gxGreen -= img.rgbtGreen;
-                    gyGreen += img.rgbtGreen;
+                    gxBlue -= image[i+1][j-1].rgbtBlue;
+                    gyBlue += image[i+1][j-1].rgbtBlue;
+                    gxRed -= image[i+1][j-1].rgbtRed;
+                    gyRed += image[i+1][j-1].rgbtRed;
+                    gxGreen -= image[i+1][j-1].rgbtGreen;
+                    gyGreen += image[i+1][j-1].rgbtGreen;
                 }
             }
 
