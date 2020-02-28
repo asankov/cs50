@@ -161,94 +161,90 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             if (i != 0)
             {
                 // top - Gx=0, Gy=-2
-                gyBlue -= image[i-1][j].rgbtBlue * 2;
-                gyRed -= image[i-1][j].rgbtRed * 2;
-                gyGreen -= image[i-1][j].rgbtGreen * 2;
+                gyBlue -= image[i - 1][j].rgbtBlue * 2;
+                gyRed -= image[i - 1][j].rgbtRed * 2;
+                gyGreen -= image[i - 1][j].rgbtGreen * 2;
 
                 // top-right - Gx=1, Gy=-1
                 if (j != width - 1)
                 {
-                    gxBlue += image[i-1][j+1].rgbtBlue;
-                    gyBlue -= image[i-1][j+1].rgbtBlue;
-                    gxRed += image[i-1][j+1].rgbtRed;
-                    gyRed -= image[i-1][j+1].rgbtRed;
-                    gxGreen += image[i-1][j+1].rgbtGreen;
-                    gyGreen -= image[i-1][j+1].rgbtGreen;
+                    gxBlue += image[i - 1][j + 1].rgbtBlue;
+                    gyBlue -= image[i - 1][j + 1].rgbtBlue;
+                    gxRed += image[i - 1][j + 1].rgbtRed;
+                    gyRed -= image[i - 1][j + 1].rgbtRed;
+                    gxGreen += image[i - 1][j + 1].rgbtGreen;
+                    gyGreen -= image[i - 1][j + 1].rgbtGreen;
                 }
 
                 // top-left - Gx=-1, Gy=-1
                 if (j != 0)
                 {
-                    gxBlue -= image[i-1][j-1].rgbtBlue;
-                    gyBlue -= image[i-1][j-1].rgbtBlue;
-                    gxRed -= image[i-1][j-1].rgbtRed;
-                    gyRed -= image[i-1][j-1].rgbtRed;
-                    gxGreen -= image[i-1][j-1].rgbtGreen;
-                    gyGreen -= image[i-1][j-1].rgbtGreen;
+                    gxBlue -= image[i - 1][j - 1].rgbtBlue;
+                    gyBlue -= image[i - 1][j - 1].rgbtBlue;
+                    gxRed -= image[i - 1][j - 1].rgbtRed;
+                    gyRed -= image[i - 1][j - 1].rgbtRed;
+                    gxGreen -= image[i - 1][j - 1].rgbtGreen;
+                    gyGreen -= image[i - 1][j - 1].rgbtGreen;
                 }
             }
 
             // right - Gx=2, Gy=0
             if (j != width - 1)
             {
-                gxBlue += (2 * image[i][j+1].rgbtBlue);
-                gxRed += (2 * image[i][j+1].rgbtRed);
-                gxGreen += (2 * image[i][j+1].rgbtGreen);
+                gxBlue += (2 * image[i][j + 1].rgbtBlue);
+                gxRed += (2 * image[i][j + 1].rgbtRed);
+                gxGreen += (2 * image[i][j + 1].rgbtGreen);
             }
 
             // left - Gx=-2, Gy=0
             if (j != 0)
             {
-                gxBlue -= 2 * image[i][j-1].rgbtBlue;
-                gxRed -= 2 * image[i][j-1].rgbtRed;
-                gxGreen -= 2 * image[i][j-1].rgbtGreen;
+                gxBlue -= 2 * image[i][j - 1].rgbtBlue;
+                gxRed -= 2 * image[i][j - 1].rgbtRed;
+                gxGreen -= 2 * image[i][j - 1].rgbtGreen;
             }
 
             if (i != height - 1)
             {
                 // bottom - Gx=0, Gy=2
-                gyBlue += (image[i+1][j].rgbtBlue * 2);
-                gyRed += (image[i+1][j].rgbtRed * 2);
-                gyGreen += (image[i+1][j].rgbtGreen * 2);
+                gyBlue += (image[i + 1][j].rgbtBlue * 2);
+                gyRed += (image[i + 1][j].rgbtRed * 2);
+                gyGreen += (image[i + 1][j].rgbtGreen * 2);
 
                 // bottom-right - Gx=1, Gy=1
                 if (j != width - 1)
                 {
-                    gxBlue += image[i+1][j+1].rgbtBlue;
-                    gyBlue += image[i+1][j+1].rgbtBlue;
-                    gxRed += image[i+1][j+1].rgbtRed;
-                    gyRed += image[i+1][j+1].rgbtRed;
-                    gxGreen += image[i+1][j+1].rgbtGreen;
-                    gyGreen += image[i+1][j+1].rgbtGreen;
+                    gxBlue += image[i + 1][j + 1].rgbtBlue;
+                    gyBlue += image[i + 1][j + 1].rgbtBlue;
+                    gxRed += image[i + 1][j + 1].rgbtRed;
+                    gyRed += image[i + 1][j + 1].rgbtRed;
+                    gxGreen += image[i + 1][j + 1].rgbtGreen;
+                    gyGreen += image[i + 1][j + 1].rgbtGreen;
                 }
                 // bottom-left - Gx=-1, Gy=1
                 if (j != 0)
                 {
-                    gxBlue -= image[i+1][j-1].rgbtBlue;
-                    gyBlue += image[i+1][j-1].rgbtBlue;
-                    gxRed -= image[i+1][j-1].rgbtRed;
-                    gyRed += image[i+1][j-1].rgbtRed;
-                    gxGreen -= image[i+1][j-1].rgbtGreen;
-                    gyGreen += image[i+1][j-1].rgbtGreen;
+                    gxBlue -= image[i + 1][j - 1].rgbtBlue;
+                    gyBlue += image[i + 1][j - 1].rgbtBlue;
+                    gxRed -= image[i + 1][j - 1].rgbtRed;
+                    gyRed += image[i + 1][j - 1].rgbtRed;
+                    gxGreen -= image[i + 1][j - 1].rgbtGreen;
+                    gyGreen += image[i + 1][j - 1].rgbtGreen;
                 }
             }
 
-            int gxRedSqr = (gxRed*gxRed);
-            int gyRedSqr = (gyRed*gyRed);
-            int redSqr = sqrt((float)(gxRedSqr + gyRedSqr));
-            int newRed = (int) roundf(sqrt(gxRedSqr + gyRedSqr));
-            // printf("gxRed: %i, gxRedSqr: %i, gyRed: %i, gyRedSqr: %i, redSqr: %i, newRed: %i\n", gxRed, gxRedSqr, gyRed, gyRedSqr, redSqr, newRed);
+            int newRed = (int) roundf(sqrt((float)((gxRed * gxRed) + (gyRed * gyRed))));
             if (newRed > 255)
             {
                 newRed = 255;
             }
-            int newBlue = (int) roundf(sqrt((float)((gxBlue*gxBlue) + (gyBlue*gyBlue))));
+            int newBlue = (int) roundf(sqrt((float)((gxBlue * gxBlue) + (gyBlue * gyBlue))));
             if (newBlue > 255)
             {
                 newBlue = 255;
             }
 
-            int newGreen = (int) roundf(sqrt((float)((gxGreen*gxGreen) + (gyGreen*gyGreen))));
+            int newGreen = (int) roundf(sqrt((float)((gxGreen * gxGreen) + (gyGreen * gyGreen))));
             if (newGreen > 255)
             {
                 newGreen = 255;
