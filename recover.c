@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     int c = 0;
     FILE *image = NULL;
-    while(1)
+    while (1)
     {
         BYTE *retrieved = malloc(BLOCK_SIZE);
         if (retrieved == NULL)
@@ -44,8 +44,8 @@ int main(int argc, char *argv[])
                 fclose(image);
             }
 
-            char *filename = malloc(sizeof(char)*8);
-            if (filename==NULL)
+            char *filename = malloc(sizeof(char) * 8);
+            if (filename == NULL)
             {
                 printf("Error\n");
                 return 1;
