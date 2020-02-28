@@ -235,7 +235,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
             int gxRedSqr = (gxRed*gxRed);
             int gyRedSqr = (gyRed*gyRed);
+            int redSqr = sqrt(gxRedSqr + gyRedSqr);
             int newRed = (int) roundf(sqrt(gxRedSqr + gyRedSqr));
+            printf("gxRed: %i, gxRedSqr: %i, gyRed: %i, gyRedSqr: %i, redSqr: %i, newRed: %i", gxRed, gxRedSqr, gyRed, gyRedSqr, redSqr, newRed);
             if (newRed > 255)
             {
                 newRed = 255;
