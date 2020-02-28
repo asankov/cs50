@@ -59,15 +59,13 @@ int main(int argc, char *argv[])
             }
             free(filename);
 
+        }
+            
+        if (image != NULL)
+        {
             fwrite(retrieved, sizeof(BYTE), read, image);
         }
-        else
-        {
-            if (image != NULL)
-            {
-                fwrite(retrieved, sizeof(BYTE), read, image);
-            }
-        }
+
         free(retrieved);
     }
 
