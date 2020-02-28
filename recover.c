@@ -45,7 +45,11 @@ int main(int argc, char *argv[])
                 fclose(image);
             }
 
-            char *filename = NULL;
+            char *filename = malloc(sizeof(char)*4);
+            if (filename==NULL)
+            {
+                return 1;
+            }
             sprintf(filename, "%3d", ++c);
             image = fopen(filename, "w");
             if (image == NULL)
@@ -53,6 +57,7 @@ int main(int argc, char *argv[])
                 printf("Error opening new file.\n");
                 return 1;
             }
+            free(filename);
 
             fprintf(image,"%s", retrieved);
 
