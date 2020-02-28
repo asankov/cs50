@@ -44,13 +44,13 @@ int main(int argc, char *argv[])
                 fclose(image);
             }
 
-            char *filename = malloc(sizeof(char)*4);
+            char *filename = malloc(sizeof(char)*8);
             if (filename==NULL)
             {
                 printf("Error\n");
                 return 1;
             }
-            sprintf(filename, "%3d", ++c);
+            sprintf(filename, "%3d.jpg", ++c);
             image = fopen(filename, "w");
             if (image == NULL)
             {
