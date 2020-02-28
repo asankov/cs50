@@ -26,6 +26,11 @@ int main(int argc, char *argv[])
     while(1)
     {
         BYTE *retrieved = malloc(BLOCK_SIZE);
+        if (retrieved == NULL)
+        {
+            printf("Error allocating memory.\n");
+            return 1;
+        }
         int read = fread(retrieved, sizeof(BYTE), BLOCK_SIZE, file);
         if (read != BLOCK_SIZE)
         {
@@ -52,13 +57,14 @@ int main(int argc, char *argv[])
             fprintf(image,"%s", retrieved);
 
             printf("Image %i found.\n", ++c);
-        } 
-        else 
+        }
+        else
         {
             if (image != NULL)
             {
                 fprintf(image, "%s", retrieved);
             }
         }
+        free(retrieved);
     }
 }
