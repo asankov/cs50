@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
         int read = fread(retrieved, sizeof(BYTE), BLOCK_SIZE, file);
         if (read != BLOCK_SIZE)
         {
-            return 0;
+            break;
         }
 
         if (retrieved[0] == 0xff && retrieved[1] == 0xd8 && retrieved[2] == 0xff && (retrieved[3] & 0xf0) == 0xe0)
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
             }
             free(filename);
 
-            fprintf(image,"%s", retrieved);
+            fwrite(retrieved, sizeof(BYTE), read, image);
         }
         else
         {
@@ -70,4 +70,6 @@ int main(int argc, char *argv[])
         }
         free(retrieved);
     }
+
+    return 0;
 }
