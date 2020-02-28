@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
             char *filename = malloc(sizeof(char)*4);
             if (filename==NULL)
             {
+                printf("Error\n");
                 return 1;
             }
             sprintf(filename, "%3d", ++c);
