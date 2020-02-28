@@ -34,8 +34,7 @@ int main(int argc, char *argv[])
         int read = fread(retrieved, sizeof(BYTE), BLOCK_SIZE, file);
         if (read != BLOCK_SIZE)
         {
-            printf("Read error.\n");
-            return 1;
+            return 0;
         }
 
         if (retrieved[0] == 0xff && retrieved[1] == 0xd8 && retrieved[2] == 0xff && (retrieved[3] & 0xf0) == 0xe0)
