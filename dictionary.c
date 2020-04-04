@@ -100,9 +100,11 @@ unsigned int size(void)
     int count = 0;
     for (int i = 0; i < N; i++)
     {
-        while (table[i] != NULL)
+        n = table[i];
+        while (n != NULL)
         {
             count++;
+            n = n->next;
         }
     }
     
