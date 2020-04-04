@@ -100,7 +100,7 @@ unsigned int size(void)
     int count = 0;
     for (int i = 0; i < N; i++)
     {
-        n = table[i];
+        node* n = table[i];
         while (n != NULL)
         {
             count++;
