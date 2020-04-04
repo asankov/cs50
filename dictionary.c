@@ -79,6 +79,7 @@ bool load(const char *dictionary)
         }
 
         strcpy(n->word, word);
+        n->next = NULL;
 
         int i = hash(word) % N;
 
