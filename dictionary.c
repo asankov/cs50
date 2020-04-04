@@ -93,7 +93,7 @@ bool load(const char *dictionary)
         }
     }
     free(word);
-    if (fclose(file) != 0)
+    if (fclose(dict) != 0)
     {
         fprintf(stderr, "error closing dictionary file");
         return false;
