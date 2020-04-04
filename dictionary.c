@@ -92,6 +92,12 @@ bool load(const char *dictionary)
             table[i] = n;
         }
     }
+    free(word);
+    if (fclose(file) != 0)
+    {
+        fprintf(stderr, "error closing dictionary file");
+        return false;
+    }
     return true;
 }
 
