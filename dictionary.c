@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <ctype.h>
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -52,7 +53,7 @@ unsigned int hash(const char *word)
     int sum = 0;
     for (int i = 0; word[i] != '\0'; i++)
     {
-        sum += word[i];
+        sum += tolower(word[i]);
     }
     return sum;
 }
