@@ -124,6 +124,11 @@ bool unload(void)
     for (int i = 0; i < N; i++)
     {
         node* n = table[i];
+        if (n == NULL)
+        {
+            continue;
+        }
+        n = n->next;
         while (n != NULL)
         {
             node* tounload = n;
