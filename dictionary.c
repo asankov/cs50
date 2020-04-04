@@ -27,14 +27,14 @@ bool check(const char *word)
 {
     int h = hash(word);
 
-    node* n = table[h % N];
+    node *n = table[h % N];
     if (n == NULL)
     {
         return false;
     }
 
 
-    while(n != NULL)
+    while (n != NULL)
     {
         if (strcasecmp(word, n->word) == 0)
         {
@@ -62,16 +62,16 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
 
-    FILE* dict = fopen(dictionary, "r");
+    FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
         fprintf(stderr, "cannot open file");
         return false;
     }
-    char* word = malloc(sizeof(char)*LENGTH);
+    char *word = malloc(sizeof(char) * LENGTH);
     while (fscanf(dict, "%s", word) != EOF)
     {
-        node* n = malloc(sizeof(node));
+        node *n = malloc(sizeof(node));
         if (n == NULL)
         {
             fprintf(stderr, "not enough memory to allocate node.");
@@ -108,7 +108,7 @@ unsigned int size(void)
     int count = 0;
     for (int i = 0; i < N; i++)
     {
-        node* n = table[i];
+        node *n = table[i];
         while (n != NULL)
         {
             count++;
@@ -124,10 +124,10 @@ bool unload(void)
 {
     for (int i = 0; i < N; i++)
     {
-        node* cursor = table[i];
+        node *cursor = table[i];
         while (cursor != NULL)
         {
-            node* tmp = cursor;
+            node *tmp = cursor;
             cursor = cursor->next;
             
             free(tmp);
