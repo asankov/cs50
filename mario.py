@@ -8,7 +8,7 @@ def main():
         
         print("#"*(i+1), end="")
         
-        print(" ", end="")
+        print("  ", end="")
         
         print("#"*(i+1), end="")
 
