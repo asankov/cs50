@@ -12,7 +12,6 @@ def main():
         
         print("#"*(i+1), end="")
 
-            
         print()
 
 
