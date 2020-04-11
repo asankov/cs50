@@ -5,9 +5,9 @@ def main():
     if len(sys.argv) != 3:
         print("Invalid number of arguments.")
         return
-    
+
     dataset, dna_sequence = sys.argv[1], sys.argv[2]
-    
+
     with open(dataset, newline='') as csvfile:
         with open(dna_sequence, newline='') as dnafile:
             dna = dnafile.readlines()[0]
@@ -19,14 +19,17 @@ def main():
                 if key == 'name':
                     name = value
                     continue
-                
+
+                if dna.count(key) > value:
+                    continue
+
                 if dna.find(key * int(value)) == -1:
                     found = False
-            
+
             if found:
                 print(name)
                 return
 
         print("No match")
-    
+
 main()
