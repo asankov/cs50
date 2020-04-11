@@ -20,7 +20,7 @@ def main():
                     name = value
                     continue
 
-                if dna.count(key) > value:
+                if dna.count(key) > int(value):
                     continue
 
                 if dna.find(key * int(value)) == -1:
