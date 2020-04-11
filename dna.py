@@ -27,7 +27,6 @@ def main():
                 print(name)
                 return
 
-        print("Not found.")
+        print("No match")
     
 main()
-    
