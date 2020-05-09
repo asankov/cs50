@@ -1,4 +1,4 @@
-## Lecture 1 - C
+## Week 1 - C
 
 ### Problem set
 

@@ -1,4 +1,4 @@
-## Lecture 3 - Algorithms
+## Week 3 - Algorithms
 
 ### Problem set
 

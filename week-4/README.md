@@ -1,4 +1,4 @@
-## Lecture 4 - Memory
+## Week 4 - Memory
 
 ### Problem set
 

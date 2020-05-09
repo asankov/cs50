@@ -1,4 +1,4 @@
-## Lecture 6 - Python
+## Week 6 - Python
 
 ### Problem set
 

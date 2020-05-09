@@ -1,4 +1,4 @@
-## Lecture 5 - Data Structures
+## Week 5 - Data Structures
 
 ### Problem set
 

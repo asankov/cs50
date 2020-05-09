@@ -1,4 +1,4 @@
-## Lecture 2 - Arrays
+## Week 2 - Arrays
 
 ### Problem set
 
