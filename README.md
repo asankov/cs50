@@ -22,3 +22,6 @@ You can sign-up for the course here: https://courses.edx.org/courses/course-v1:H
 ### [Week 6 - Python](week-6)
 ### Week 7 - SQL
 ### Week 8
+
+## License
+This work is licensed under MIT license. For more info see [LICENSE.md](LICENSE.md)
