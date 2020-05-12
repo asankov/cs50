@@ -14,3 +14,4 @@ and regarding Android Kotlin is the (not so) new cool kid on the block.
 am still having feelings of something unfinished.
 - Had it not been for that, I probably would have picked the Games one, as gaming is my passion.
 
+This is the [link](https://cs50.harvard.edu/x/2020/tracks/mobile/ios/) for the track.
