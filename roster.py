@@ -11,7 +11,7 @@ def main():
         return
     
     house = sys.argv[1]
-    rows = db.execute("SELECT first, middle, last, house, birth FROM students WHERE house = ?", house)
+    rows = db.execute("SELECT first, middle, last, house, birth FROM students WHERE house = ? ORDER BY last, first", house)
     
     for row in rows:
         if row['middle']:
