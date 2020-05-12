@@ -23,9 +23,9 @@ def main():
                 
             if middle_name:
                 db.execute("INSERT INTO students(first, middle, last, house, birth) VALUES(?, ?, ?, ?, ?)", 
-                            first_name, middle_name, last_name, row["house"], int(row["birth"]))
+                           first_name, middle_name, last_name, row["house"], int(row["birth"]))
             else:
                 db.execute("INSERT INTO students(first, last, house, birth) VALUES(?, ?, ?, ?)", 
-                            first_name, last_name, row["house"], int(row["birth"]))
+                           first_name, last_name, row["house"], int(row["birth"]))
     
 main()
