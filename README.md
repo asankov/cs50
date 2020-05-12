@@ -23,5 +23,7 @@ You can sign-up for the course here: https://courses.edx.org/courses/course-v1:H
 ### [Week 7 - SQL](week-7)
 ### Week 8
 
+### [Final track - iOS](ios-track)
+
 ## License
 This work is licensed under MIT license. For more info see [LICENSE.md](LICENSE.md)
