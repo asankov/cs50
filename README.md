@@ -21,7 +21,7 @@ You can sign-up for the course here: https://courses.edx.org/courses/course-v1:H
 ### [Week 5 - Data Structures](week-5)
 ### [Week 6 - Python](week-6)
 ### [Week 7 - SQL](week-7)
-### Week 8
+### [Week 8 - Information](week-8)
 
 ### [Final track - iOS](ios-track)
 
