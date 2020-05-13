@@ -1,4 +1,4 @@
-## iOS Track
+# iOS Track
 
 CS50 gives you 4 options to choose from for the final track of your studies and your final project:
 - Web
@@ -15,3 +15,12 @@ am still having feelings of something unfinished.
 - Had it not been for that, I probably would have picked the Games one, as gaming is my passion.
 
 This is the [link](https://cs50.harvard.edu/x/2020/tracks/mobile/ios/) for the track.
+
+## Table of Contents
+
+### [Lesson 1 - Swift](lesson-1)
+### Lesson 2
+### Lesson 3
+### Lesson 4
+### Lesson 5
+
