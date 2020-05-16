@@ -22,6 +22,7 @@ class PokemonViewController: UIViewController {
         
         type1Label.text = ""
         type2Label.text = ""
+        pokemonCaught = UserDefaults.standard.bool(forKey: pokemon.name)
         setTitle()
         
         let url = URL(string: pokemon.url)
@@ -58,6 +59,7 @@ class PokemonViewController: UIViewController {
     
     @IBAction func toggleCatch() {
         pokemonCaught = !pokemonCaught
+        UserDefaults.standard.set(pokemonCaught, forKey: pokemon.name)
         setTitle()
     }
     
