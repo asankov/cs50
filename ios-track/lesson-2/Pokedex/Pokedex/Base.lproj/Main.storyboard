@@ -92,12 +92,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boX-Gr-9FV">
+                                <rect key="frame" x="20" y="820" width="374" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Catch"/>
+                                <connections>
+                                    <action selector="toggleCatch" destination="Uvg-W2-bn3" eventType="touchUpInside" id="S45-yc-SUy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xp0-yD-pAs"/>
                     </view>
                     <navigationItem key="navigationItem" id="XKV-xy-Z5B"/>
                     <connections>
+                        <outlet property="catchButton" destination="boX-Gr-9FV" id="Qno-2n-5Z2"/>
                         <outlet property="nameLabel" destination="kc8-5A-Kfv" id="dpK-hm-Ekp"/>
                         <outlet property="numberLabel" destination="FfX-Bd-iSV" id="mhe-KP-IN5"/>
                         <outlet property="type1Label" destination="fvb-0m-FHy" id="laI-I4-MKi"/>
