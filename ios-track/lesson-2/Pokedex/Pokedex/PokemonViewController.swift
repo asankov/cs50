@@ -14,6 +14,7 @@ class PokemonViewController: UIViewController {
     @IBOutlet var type1Label: UILabel!
     @IBOutlet var type2Label: UILabel!
     @IBOutlet var catchButton: UIButton!
+    @IBOutlet var pokemonImage: UIImageView!
     var pokemon: Pokemon!
     var pokemonCaught: Bool = false
 
@@ -38,6 +39,10 @@ class PokemonViewController: UIViewController {
             do {
                 let pokemonData = try JSONDecoder().decode(PokemonData.self, from: data)
                 
+                let url = URL(string: pokemonData.sprites.front_default)
+                let data = try Data(contentsOf: url!)
+                let image = UIImage(data: data)
+                
                 DispatchQueue.main.async {
                     self.nameLabel.text = self.pokemon.name
                     self.numberLabel.text = String(format: "#%03d",pokemonData.id)
@@ -49,6 +54,8 @@ class PokemonViewController: UIViewController {
                             self.type2Label.text = typeEntry.type.name
                         }
                     }
+                    
+                    self.pokemonImage.image = image
                 }
             }
             catch let error {
