@@ -15,6 +15,7 @@ class PokemonViewController: UIViewController {
     @IBOutlet var type2Label: UILabel!
     @IBOutlet var catchButton: UIButton!
     @IBOutlet var pokemonImage: UIImageView!
+    @IBOutlet var pokemonDescription: UITextView!
     var pokemon: Pokemon!
     var pokemonCaught: Bool = false
 
@@ -23,6 +24,7 @@ class PokemonViewController: UIViewController {
         
         type1Label.text = ""
         type2Label.text = ""
+        pokemonDescription.text = ""
         pokemonCaught = UserDefaults.standard.bool(forKey: pokemon.name)
         setTitle()
         
@@ -55,13 +57,38 @@ class PokemonViewController: UIViewController {
 
                 // loading the image is slow, so first render the info, and then load the image
                 // in a separate dispatch queue, for better UX
-                let url = URL(string: pokemonData.sprites.front_default)
+                var url = URL(string: pokemonData.sprites.front_default)
                 let data = try Data(contentsOf: url!)
                 let image = UIImage(data: data)
 
                 DispatchQueue.main.async {
                     self.pokemonImage.image = image
                 }
+                
+                url = URL(string: "https://pokeapi.co/api/v2/pokemon-species/\(pokemonData.id)/")
+                guard let u = url else {
+                    return
+                }
+                
+                URLSession.shared.dataTask(with: u, completionHandler: {(data, response, error) in
+                    guard let data = data else {
+                        return
+                    }
+                    do {
+                        let pokemonSpeciesData = try JSONDecoder().decode(PokemonSpecies.self, from: data)
+                        for textEntry in pokemonSpeciesData.flavor_text_entries {
+                            if textEntry.language.name == "en" {
+                                DispatchQueue.main.async {
+                                    self.pokemonDescription.text = textEntry.flavor_text
+                                }
+                                break
+                            }
+                        }
+                    }
+                    catch let error {
+                        print("\(error)")
+                    }
+                    }).resume()
             }
             catch let error {
                 print("\(error)")
