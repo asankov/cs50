@@ -39,10 +39,6 @@ class PokemonViewController: UIViewController {
             do {
                 let pokemonData = try JSONDecoder().decode(PokemonData.self, from: data)
                 
-                let url = URL(string: pokemonData.sprites.front_default)
-                let data = try Data(contentsOf: url!)
-                let image = UIImage(data: data)
-                
                 DispatchQueue.main.async {
                     self.nameLabel.text = self.pokemon.name
                     self.numberLabel.text = String(format: "#%03d",pokemonData.id)
@@ -55,6 +51,15 @@ class PokemonViewController: UIViewController {
                         }
                     }
                     
+                }
+
+                // loading the image is slow, so first render the info, and then load the image
+                // in a separate dispatch queue, for better UX
+                let url = URL(string: pokemonData.sprites.front_default)
+                let data = try Data(contentsOf: url!)
+                let image = UIImage(data: data)
+
+                DispatchQueue.main.async {
                     self.pokemonImage.image = image
                 }
             }
