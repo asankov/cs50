@@ -46,6 +46,24 @@
                                     <action selector="applyVintage" destination="BYZ-38-t0r" eventType="touchUpInside" id="maC-Ew-LVf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WX4-gq-tw0">
+                                <rect key="frame" x="175" y="613" width="65" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Matrix"/>
+                                <connections>
+                                    <action selector="applyMatrix" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ogo-ui-bKW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vP5-nv-C1i">
+                                <rect key="frame" x="166" y="662" width="83" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Chrome"/>
+                                <connections>
+                                    <action selector="applyChrome" destination="BYZ-38-t0r" eventType="touchUpInside" id="N2s-xN-dwV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

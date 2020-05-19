@@ -47,6 +47,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         display(filter: filter!)
     }
     
+    @IBAction func applyMatrix() {
+        if original == nil {
+            return
+        }
+        let filter = CIFilter(name: "CIColorMatrix")
+        display(filter: filter!)
+    }
+    
+    @IBAction func applyChrome() {
+        if original == nil {
+            return
+        }
+        let filter = CIFilter(name: "CIPhotoEffectChrome")
+        display(filter: filter!)
+    }
+    
     func display(filter: CIFilter) {
         filter.setValue(CIImage(image: original!), forKey: kCIInputImageKey)
         let output = filter.outputImage
