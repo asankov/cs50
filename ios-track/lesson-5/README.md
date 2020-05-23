@@ -8,3 +8,6 @@ For the purpose it uses a local SQLite 3 Database (which is just a file, saved o
 
 The code can be found in [Notes](Notes).
 
+![all-notes](screenshots/allNotes.png)
+![note](screenshots/note.png)
+
