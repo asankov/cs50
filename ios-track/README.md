@@ -15,3 +15,14 @@ am still having feelings of something unfinished.
 - Had it not been for that, I probably would have picked the Games one, as gaming is my passion.
 
 This is the [link](https://cs50.harvard.edu/x/2020/tracks/mobile/ios/) for the track.
+
+### Table of Contents
+#### [Lesson 1 - Swift basics](lesson-1)
+#### [Lesson 2 - iOS basics](lesson-2)
+#### [Lesson 3 - Consuming APIs with Swift](lesson-3)
+#### [Assignment - Pokedex](lesson-2/Pokedex)
+#### [Lesson 4 - Manipulating images and file storage](lesson-4)
+#### [Assignment - Fiftygram](lesson-4/Fiftygram)
+#### [Lesson 5 - Using SQLite3 to store data](lesson-5)
+#### [Assignment - Notes](lesson-5/Notes)
+
