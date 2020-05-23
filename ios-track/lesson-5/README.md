@@ -12,6 +12,9 @@ The code can be found in [Notes](Notes).
 [Assignment](https://cs50.harvard.edu/x/2020/tracks/mobile/ios/notes/#deleting-notes)
 
 **Solution** - this solution build on the work already done, so check out [Notes](Notes).
+
+#### Screenshots
+
 ![all-notes](screenshots/allNotes.png)
 ![note](screenshots/note.png)
 ![delete](screenshots/delete.png)
