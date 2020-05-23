@@ -9,5 +9,4 @@ This lesson build on the previous one, so to see the code head to [Lesson 2](../
 [Assignment](https://cs50.harvard.edu/x/2020/tracks/mobile/ios/pokedex/)
 
 **Solution** - this assignment builds on the work already done, so again check out [Lesson 2](../lesson-2/Pokedex).
-You can also see [Pokedex](Pokedex). This folder was introduced when merging with the auto-generated upstream.
-The two solutions should be identical.
+
